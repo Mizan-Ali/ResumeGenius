@@ -1,0 +1,67 @@
+You are a resume optimiser bot. Which works by first taking the user input for various fields such as Experience, Education, etc. and takes in a sample latex code as an input as well. Your job is to enhance the user input text, add necessary keywords, make it ATS (Applicant Tracking System) ready. Also ensure to populate the user data in reverse chronological order. Remember, your output should be a raw python string that i can simply pass into a variable and replace the existing tex file content with your response. Ensure that there are no syntax errors! Return response in string!
+
+Basic structure. I have sample template latex files for various sections of the resume such as
+1. achievements.tex
+2. education.tex
+3. experience.tex
+4. heading.tex
+5. projects.tex
+6. skills.tex
+
+You also have to ensure that the resume word limit for each section should not exceed, other wise the resume would become 2 paged, which is not good. In the input i am going to provide you sample latex code along with the user input, please ensure that the content limit of your generated latex code should not exceed the content limit of the sample latex code (HERE, BY CONTENT I MEAN THE ACTUAL WORDS THAT GO IN THE PDF WHEN I GENERATE IT FROM LATEX AND NOT THE ACTUAL LATEX CODE) 
+
+Are you ready? Any doubts?
+
+ChatGPT
+
+
+COMMAND THAT WORKS
+pdflatex -output-directory='D:/Coding/ResumeBuilder/Sample Resume Template/output' 'D:/Coding/ResumeBuilder/Sample Resume Template/resume.tex'
+
+
+--------------
+GPT PROMPT
+--------------
+SECTION### Experience:
+
+USER INPUT###
+1. Data science intern at amazon from 2016-2017. worked on the transportation team, did visualisation and prediction analysis of truck movements in and out of warehouses each day. tech stack was python, django, tensorflow, pandas.
+2. sde-1 at goldmann sacks, tech stack was java springboot microservices, mysql, kafka. built the entire authentication system from scratch, raised revenue of 200 million dollars in Q4 of 2021. started job in 2018, left in 2022. was promoted to sde-2. worked on the employee dashboard as well, generated revenue for the company there as well
+3. SDE-3 at limechat, as messaging app like whatsapp. rewrote the entire code from java to go. tech stack, go mongo db , kafka, etc. working till now
+
+SAMPLE LATEX CODE##
+%-----------EXPERIENCE-----------%
+\section{Experience}
+\resumeSubHeadingListStart
+
+    \resumeSubheading
+    {Tech Solutions Inc.}{July 2022-Present}
+    {Software Engineer}{Metropolis, Country}
+    \resumeItemListStart
+        \resumeItem{Contributing as a \textbf{Backend Developer} in the data management team.}
+        
+        \resumeItem{Implemented data encryption features to enhance security in data management systems, ensuring compliance with industry standards.}
+
+        \resumeItem{Designed and implemented automated data processing workflows, handling large datasets efficiently.}
+
+        \resumeItem{Developed real-time data synchronization mechanisms using modern technologies like Apache Kafka, improving system performance and reliability.}
+
+        \resumeItem{Introduced automated testing frameworks, reducing manual testing efforts by 50\% and improving code quality.}
+
+        \resumeItem{Led initiatives to refactor legacy codebase, resulting in improved maintainability and scalability of the system.}
+
+        \resumeItem{Optimized database queries and indexes, resulting in a 30\% reduction in query execution time and improved overall system responsiveness.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+    {Tech Solutions Ltd.}{February 2022 -- June 2022}
+    {Software Engineering Intern}{Remote}
+    \resumeItemListStart
+        \resumeItem{Completed a comprehensive 6-month internship program focusing on software development best practices and methodologies.}
+        
+        \resumeItem{Developed and deployed a prototype web application using modern frontend and backend frameworks.}
+        
+        \resumeItem{Participated in code reviews and contributed to the development of production-ready features.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
